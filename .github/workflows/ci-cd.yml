@@ -19,16 +19,15 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Checkout Terraform Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Terraform Init
-        run: |
-          echo "this is a mock terraform init step"
-          # terraform init
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
 
       - name: Terraform validate
         run: |
+          terraform init
           terraform validate
 
       - name: Test with Checkov
@@ -46,7 +45,7 @@ jobs:
       run:
         working-directory: terraform
     steps:
-      - name: Checkout Terraform Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set up Terraform

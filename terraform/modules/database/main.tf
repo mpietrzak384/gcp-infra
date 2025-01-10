@@ -14,6 +14,7 @@ resource "google_sql_database_instance" "db_instance" {
     ip_configuration {
       ipv4_enabled    = false
       private_network = var.private_network
+      require_ssl     = true
     }
 
     disk_autoresize = true

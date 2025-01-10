@@ -16,6 +16,16 @@ resource "google_compute_instance_template" "web_template" {
   metadata_startup_script = file("${path.module}/../../scripts/startup.sh")
 
   tags = ["nginx"]
+
+  metadata = {
+    block-project-ssh-keys = "true"
+  }
+
+  shielded_instance_config {
+    enable_secure_boot          = true
+    enable_vtpm                 = true
+    enable_integrity_monitoring = true
+  }
 }
 
 resource "google_compute_region_instance_group_manager" "web_igm" {

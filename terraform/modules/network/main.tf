@@ -9,22 +9,14 @@ resource "google_compute_subnetwork" "main_subnet" {
   ip_cidr_range = var.main_subnet_cidr_range
   network       = google_compute_network.main_vpc.self_link
   region        = var.region
-}
 
-resource "google_compute_firewall" "allow_http" {
-  name    = "${var.environment}-allow-http"
-  network = google_compute_network.main_vpc.self_link
+  private_ip_google_access = true
 
-  allow {
-    protocol = "tcp"
-    ports    = ["80"]
-  }
-
-  source_ranges = var.trusted_ranges
   log_config {
-    metadata = "INCLUDE_ALL_METADATA"
+    aggregation_interval = "INTERVAL_5_MIN"
+    flow_sampling        = 0.5
+    metadata             = "INCLUDE_ALL_METADATA"
   }
-  description = "Allow HTTP from trusted sources"
 }
 
 resource "google_compute_firewall" "allow_https" {

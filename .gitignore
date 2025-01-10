@@ -67,3 +67,6 @@ go.work.sum
 
 # env file
 .env
+
+# checkov output
+results.sarif

@@ -31,7 +31,8 @@ module "database" {
 }
 
 module "storage" {
-  source      = "./modules/storage"
-  environment = var.environment
-  region      = var.region
+  source              = "./modules/storage"
+  environment         = var.environment
+  region              = var.region
+  logging_bucket_name = var.logging_bucket_name
 }

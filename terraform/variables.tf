@@ -33,3 +33,8 @@ variable "db_password" {
   type        = string
   sensitive   = true
 }
+
+variable "logging_bucket_name" {
+  type        = string
+  description = "bucket for log storage"
+}

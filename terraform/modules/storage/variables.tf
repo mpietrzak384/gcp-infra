@@ -17,3 +17,8 @@ variable "iam_members" {
     "serviceAccount:example@project-id.iam.gserviceaccount.com"
   ]
 }
+
+variable "logging_bucket_name" {
+  type        = string
+  description = "bucket for log storage"
+}

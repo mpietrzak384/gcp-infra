@@ -59,12 +59,10 @@ jobs:
       - name: Terraform Plan
         run: |
           echo "this is a mock terraform plan step"
-          echo "docker_image_uri - ${{ needs.build.outputs.docker_image_uri }}"          
-          # terraform plan -var "s3_data_provider_docker_image_uri=${{ needs.build.outputs.docker_image_uri }}"
+          # terraform plan 
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: |
           echo "this is a mock terraform apply step"
-          echo "docker_image_uri - ${{ needs.build.outputs.docker_image_uri }}"          
-          # terraform apply -auto-approve -var "s3_data_provider_docker_image_uri=${{ needs.build.outputs.docker_image_uri }}"
+          # terraform apply

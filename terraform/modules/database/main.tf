@@ -9,6 +9,8 @@ resource "google_sql_database_instance" "db_instance" {
 
     backup_configuration {
       enabled = true
+      binary_log_enabled = true
+      start_time         = "04:00"
     }
 
     ip_configuration {

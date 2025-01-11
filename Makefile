@@ -16,17 +16,17 @@ lint:
 .PHONY: validate
 validate:
 	@echo "Validating Terraform configuration..."
-	terraform validate
+	cd terraform && terraform validate
 
 .PHONY: plan
 plan:
 	@echo "Running Terraform plan..."
-	. $(ENV_FILE) && terraform plan
+	. $(ENV_FILE) && cd terraform && terraform plan
 
 .PHONY: apply
 apply:
 	@echo "Applying Terraform configuration..."
-	. $(ENV_FILE) && terraform apply -auto-approve
+	. $(ENV_FILE) && cd terraform && terraform apply
 
 .PHONY: help
 help:

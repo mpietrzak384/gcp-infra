@@ -38,6 +38,7 @@ terraform-infra/
 
 ### Initialize Terraform
 ```bash
+cd terraform
 terraform init
 ```
 

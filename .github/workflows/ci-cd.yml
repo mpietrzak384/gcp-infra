@@ -8,6 +8,7 @@ on:
       - main
 env:
   PYTHON_VERSION: 3.8
+  GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
 
 jobs:
   test:
